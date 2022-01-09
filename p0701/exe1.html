@@ -7,7 +7,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Manuel Pérez" />
-  <title>exe1.tmpYXPbGv</title>
+  <title>exe1.tmpYNuZGT</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -79,7 +79,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </style>
   <link rel="stylesheet" type="text/css" media="screen, projection, print"
     href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
-  <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+ <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+ <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+   <script src="/usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
   <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
     charset="utf-8" type="text/javascript"></script>
 </head>
@@ -163,148 +165,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-37" title="37">    <span class="cf">return</span> resultado;</a>
 <a class="sourceLine" id="cb2-38" title="38">}</a></code></pre></div>
 <p>Nota: dentro del cuerpo de las funciones no hay errores sintáticos. No es necesario que entiendas dicho cuerpo. Los errores están sólo en la sintaxis de la definición.</p>
-</div>
-<div id="section-9" class="slide section level1">
-<h1>9</h1>
-<p>Dada la siguiente definición,</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// Calcula el área de un triángulo de lados a, b, c</span></a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="dt">double</span> area_triangulo(<span class="dt">double</span> a, <span class="dt">double</span> b, <span class="dt">double</span> c)</a>
-<a class="sourceLine" id="cb3-3" title="3">{</a>
-<a class="sourceLine" id="cb3-4" title="4">    <span class="dt">double</span> angulo = acos((a*a + b*b - c*c)/(<span class="dv">2</span>*a*b));</a>
-<a class="sourceLine" id="cb3-5" title="5">    <span class="dt">double</span> altura = a*sin(angulo);</a>
-<a class="sourceLine" id="cb3-6" title="6">    <span class="dt">double</span> base = b;</a>
-<a class="sourceLine" id="cb3-7" title="7">    <span class="cf">return</span> base*altura/<span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb3-8" title="8">}</a></code></pre></div>
-<p>escribe los valores de las siguientes expresiones:</p>
-<ul>
-<li><code>area_triangulo(3, 4, 5)</code></li>
-<li><code>area_triangulo(5, 12, 13)</code></li>
-</ul>
-</div>
-<div id="section-10" class="slide section level1">
-<h1>10</h1>
-<p>Dada la siguiente definición,</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// Calcula el punto de corte con el eje OX de la recta y = mx + n</span></a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="co">// Debe ser m distinto de cero</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="dt">double</span> corte_OX(<span class="dt">double</span> m, <span class="dt">double</span> n)</a>
-<a class="sourceLine" id="cb4-4" title="4">{</a>
-<a class="sourceLine" id="cb4-5" title="5">    <span class="cf">return</span> -n/m;</a>
-<a class="sourceLine" id="cb4-6" title="6">}</a></code></pre></div>
-<p>escribe los valores de las siguientes expresiones:</p>
-<ul>
-<li><code>corteOX(1, 2)</code></li>
-<li><code>corteOX(2, 1)</code></li>
-</ul>
-</div>
-<div id="section-11" class="slide section level1">
-<h1>11</h1>
-<p>Dadas las siguientes definiciones,</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" title="1"><span class="dt">double</span> doble(<span class="dt">double</span> x)</a>
-<a class="sourceLine" id="cb5-2" title="2">{</a>
-<a class="sourceLine" id="cb5-3" title="3">    <span class="cf">return</span> <span class="dv">2</span>*x;</a>
-<a class="sourceLine" id="cb5-4" title="4">}</a>
-<a class="sourceLine" id="cb5-5" title="5"></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="dt">double</span> cuadrado(<span class="dt">double</span> x)</a>
-<a class="sourceLine" id="cb5-7" title="7">{</a>
-<a class="sourceLine" id="cb5-8" title="8">    <span class="cf">return</span> x*x;</a>
-<a class="sourceLine" id="cb5-9" title="9">}</a>
-<a class="sourceLine" id="cb5-10" title="10"></a>
-<a class="sourceLine" id="cb5-11" title="11"><span class="dt">double</span> siguiente(<span class="dt">double</span> x)</a>
-<a class="sourceLine" id="cb5-12" title="12">{</a>
-<a class="sourceLine" id="cb5-13" title="13">    <span class="cf">return</span> x + <span class="dv">1</span>;</a>
-<a class="sourceLine" id="cb5-14" title="14">}</a></code></pre></div>
-<p>escribe los valores de las siguientes expresiones:</p>
-<ul>
-<li><code>cuadrado(doble(3))</code></li>
-<li><code>doble(cuadrado(3))</code></li>
-<li><code>cuadrado(doble(siguiente(3)))</code></li>
-<li><code>siguiente(doble(cuadrado(3)))</code></li>
-<li><code>cuadrado(doble(3) + siguiente(1))</code></li>
-<li><code>doble(siguiente(cuadrado(3)) + siguiente(2*doble(2)))</code></li>
-</ul>
-</div>
-<div id="section-12" class="slide section level1">
-<h1>12</h1>
-<p>Observa el código siguiente:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" title="1"><span class="dt">void</span> introduce()</a>
-<a class="sourceLine" id="cb6-2" title="2">{</a>
-<a class="sourceLine" id="cb6-3" title="3">    console.log(<span class="st">&quot;Hello, this is John.&quot;</span>);</a>
-<a class="sourceLine" id="cb6-4" title="4">}</a></code></pre></div>
-<p>Reescribe la definición de la función, añadiendo un parámetro, de modo que el nombre que aparece en el saludo sea el valor de dicho parámetro.</p>
-<p>Por ejemplo, la llamada: <code>introduce("Peter")</code>, produciría en la consola el mensaje, <code>Hello, this is Peter.</code>.</p>
-</div>
-<div id="section-13" class="slide section level1">
-<h1>13</h1>
-<p>Observa el código siguiente:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" title="1"><span class="bu">std::</span>string introduction()</a>
-<a class="sourceLine" id="cb7-2" title="2">{</a>
-<a class="sourceLine" id="cb7-3" title="3">    <span class="cf">return</span> <span class="st">&quot;Hello, this is John.&quot;</span>;</a>
-<a class="sourceLine" id="cb7-4" title="4">}</a></code></pre></div>
-<p>Reescribe la definición de la función, añadiendo un parámetro, de modo que el nombre que aparece en el saludo sea el valor de dicho parámetro.</p>
-<p>Por ejemplo, la expresión <code>introduction("Peter")</code> valdría <code>"Hello, this is Peter."</code>.</p>
-</div>
-<div id="section-14" class="slide section level1">
-<h1>14</h1>
-<p>Dadas las siguientes definiciones:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" title="1"><span class="dt">double</span> sol1(<span class="dt">double</span> a, <span class="dt">double</span> b, <span class="dt">double</span> c)</a>
-<a class="sourceLine" id="cb8-2" title="2">{</a>
-<a class="sourceLine" id="cb8-3" title="3">    <span class="cf">return</span> (-b - sqrt(b*b - <span class="dv">4</span>*a*c))/(<span class="dv">2</span>*a);</a>
-<a class="sourceLine" id="cb8-4" title="4">}</a>
-<a class="sourceLine" id="cb8-5" title="5"></a>
-<a class="sourceLine" id="cb8-6" title="6"><span class="dt">double</span> sol2(<span class="dt">double</span> a, <span class="dt">double</span> b, <span class="dt">double</span> c)</a>
-<a class="sourceLine" id="cb8-7" title="7">{</a>
-<a class="sourceLine" id="cb8-8" title="8">    <span class="cf">return</span> (-b + sqrt(b*b - <span class="dv">4</span>*a*c))/(<span class="dv">2</span>*a);</a>
-<a class="sourceLine" id="cb8-9" title="9">}</a>
-<a class="sourceLine" id="cb8-10" title="10"></a>
-<a class="sourceLine" id="cb8-11" title="11"><span class="bu">std::</span>string resuelve(<span class="dt">double</span> a, <span class="dt">double</span> b, <span class="dt">double</span> c)</a>
-<a class="sourceLine" id="cb8-12" title="12">{</a>
-<a class="sourceLine" id="cb8-13" title="13">    <span class="dt">double</span> s1 = (-b - sqrt(b*b - <span class="dv">4</span>*a*c))/(<span class="dv">2</span>*a);</a>
-<a class="sourceLine" id="cb8-14" title="14">    <span class="dt">double</span> s2 = (-b + sqrt(b*b - <span class="dv">4</span>*a*c))/(<span class="dv">2</span>*a);</a>
-<a class="sourceLine" id="cb8-15" title="15">    <span class="cf">return</span> <span class="st">&quot;Soluciones: &quot;</span> + s1 + <span class="st">&quot;; &quot;</span> + s2;</a>
-<a class="sourceLine" id="cb8-16" title="16">}</a>
-<a class="sourceLine" id="cb8-17" title="17"></a>
-<a class="sourceLine" id="cb8-18" title="18"><span class="bu">std::</span>string factoriza(<span class="dt">double</span> a, <span class="dt">double</span> b, <span class="dt">double</span> c)</a>
-<a class="sourceLine" id="cb8-19" title="19">{</a>
-<a class="sourceLine" id="cb8-20" title="20">    <span class="dt">double</span> r1 = (-b - sqrt(b*b - <span class="dv">4</span>*a*c))/(<span class="dv">2</span>*a);</a>
-<a class="sourceLine" id="cb8-21" title="21">    <span class="dt">double</span> r2 = (-b + sqrt(b*b - <span class="dv">4</span>*a*c))/(<span class="dv">2</span>*a);</a>
-<a class="sourceLine" id="cb8-22" title="22">    <span class="cf">return</span> <span class="st">&quot;(x - &quot;</span> + r1 + <span class="st">&quot;)(x - &quot;</span> + r2 + <span class="st">&quot;)&quot;</span>;</a>
-<a class="sourceLine" id="cb8-23" title="23">}</a></code></pre></div>
-<p>observa que en las funciones <code>resuelve</code> y <code>factoriza</code> aparecen repetidas las expresiones que se utilizan en <code>sol1</code> y <code>sol2</code>.</p>
-<p>Reescribe las funciones <code>resuelve</code> y <code>factoriza</code>, utilizando llamadas a las funciones <code>sol1</code> y <code>sol2</code>, para evitar repetir dichas expresiones.</p>
-</div>
-<div id="section-15" class="slide section level1">
-<h1>15</h1>
-<p>Se tiene una función <code>mayus(texto)</code>, que convierte en mayúsculas las letras de <code>texto</code>, y una función <code>iniciales(texto)</code>, que forma una palabra con las iniciales de las palabras de <code>texto</code>. Utilizando ambas funciones, escribe una tercera función, <code>sigla(texto)</code>, que forme una palabra con las iniciales de las palabras de <code>texto</code> en letra mayúscula.</p>
-<p>Por ejemplo,</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// Supón que están definidas las funciones mayus e iniciales</span></a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="bu">std::</span>string m = mayus(<span class="st">&quot;Hola&quot;</span>); <span class="co">// m vale &quot;HOLA&quot;</span></a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="bu">std::</span>string i = iniciales(<span class="st">&quot;Esto es un ejemplo&quot;</span>); <span class="co">// i vale &quot;Eeue&quot;</span></a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="co">// Define tú la función sigla</span></a>
-<a class="sourceLine" id="cb9-5" title="5"><span class="bu">std::</span>string s = sigla(<span class="st">&quot;Esto es un ejemplo&quot;</span>); <span class="co">// s debe valer &quot;EEUE&quot;</span></a></code></pre></div>
-</div>
-<div id="section-16" class="slide section level1">
-<h1>16</h1>
-<p>Se tiene una función <code>mayus(texto)</code>, que convierte en mayúsculas las letras de <code>texto</code>, una función <code>iniciales(texto)</code>, que forma una palabra con las iniciales de las palabras de <code>texto</code>, y una función <code>invertir(texto)</code>, que devuelve un texto con los caracteres en orden inverso a los de <code>texto</code>. Utilizando dichas funciones, escribe una cuarta función, <code>siglaFinal(texto)</code>, que forme una palabra con la última letra de las palabras de <code>texto</code> en letra mayúscula.</p>
-<p>Por ejemplo,</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb10-1" title="1"><span class="co">// Supón que están definidas las funciones mayus, iniciales e invertir</span></a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="bu">std::</span>string m = mayus(<span class="st">&quot;Hola&quot;</span>); <span class="co">// m vale &quot;HOLA&quot;</span></a>
-<a class="sourceLine" id="cb10-3" title="3"><span class="bu">std::</span>string i = iniciales(<span class="st">&quot;Esto es un ejemplo&quot;</span>); <span class="co">// i vale &quot;Eeue&quot;</span></a>
-<a class="sourceLine" id="cb10-4" title="4"><span class="bu">std::</span>string r = invertir(<span class="st">&quot;Esto es un ejemplo&quot;</span>); <span class="co">// r vale &quot;olpmeje nu se otsE&quot;</span></a>
-<a class="sourceLine" id="cb10-5" title="5"><span class="co">// Define tú la función siglaFinal</span></a>
-<a class="sourceLine" id="cb10-6" title="6"><span class="bu">std::</span>string s = siglaFinal(<span class="st">&quot;Esto es un ejemplo&quot;</span>); <span class="co">// s debe valer &quot;OSNO&quot;</span></a></code></pre></div>
-</div>
-<div id="section-17" class="slide section level1">
-<h1>17</h1>
-<p>Se tiene la función <code>reemplazar(texto, letraAntigua, letraNueva)</code>, que sustituye en <code>texto</code>, todas las apariciones de <code>letraAntigua</code> por <code>letraNueva</code>, distinguiendo mayúsculas y minúsculas. Por ejemplo:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb11-1" title="1">reemplazar(<span class="st">&quot;Esto es un ejemplo&quot;</span>, <span class="ch">&#39;e&#39;</span>, <span class="ch">&#39;@&#39;</span>) <span class="co">// &quot;Esto @s un @j@mplo&quot;</span></a></code></pre></div>
-<p>Se tiene una variable llamada <code>mensaje</code>, que almacena el texto siguiente: <code>Este mensaje es un mensaje de alto secreto</code>.</p>
-<p>Escribe, sin utilizar ninguna asignación, las llamadas a la función <code>reemplazar</code> necesarias para obtener los siguientes resultados:</p>
-<ul>
-<li><code>Esti minsaji is un minsaji di alto sicrito</code></li>
-<li><code>Exte menxaje ex un menxaje de alto xecreto</code></li>
-<li><code>Exti minxaji ix un minxaji di alto xicrito</code></li>
-<li><code>Etse mentaje et un mentaje de also tecreso</code></li>
-</ul>
 </div>
 </body>
 </html>
