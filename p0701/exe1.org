@@ -2,7 +2,7 @@
 #+OPTIONS: prop:t
 * 1
 
-Explica cuáles son las ventajas de utilizar funciones.
+Haz un esquema de la comunicación entre /llamante/ y /llamado/ en un procedimiento y en una función.
 * 2
 Haz un esquema de la sintaxis de la definición de una función,
    marcando los elementos que la forman en el siguiente ejemplo:
