@@ -22,7 +22,7 @@ Escribe una llamada a dicha función, y utiliza el valor devuelto para mostrar e
 * 5
 Escribe la definición de una función que calcule y devuelva la distancia entre dos puntos de un plano dadas sus coordenadas cartesianas. La función debe llamarse =distancia=. Debe tener cuatro parámetros, que son las coordenadas de los dos puntos: los dos primeros, las de un punto, y los dos últimos las del otro punto. Utiliza =double= tanto para los parámetros como para el valor devuelto.
 
-Para hallar la raíz cuadrada de un número =n=, utiliza =std::sqrt(n)=.
+Para hallar la raíz cuadrada de un número =n=, utiliza =sqrt(n)=. Si quieres compilar el programa, ten en cuenta que la función =sqrt= que calcula la raíz cuadrada, está en la librería =cmath=.
 
 Escribe una llamada a dicha función para calcular la distancia entre los puntos (1, 2) y (4, 6).
 * 6
@@ -78,3 +78,101 @@ int cuenta_palabras{std::string texto}
 #+end_src
 
 Nota: dentro del cuerpo de las funciones no hay errores sintáticos. No es necesario que entiendas dicho cuerpo. Los errores están sólo en la sintaxis de la definición.
+* 9
+  ¿Cuál es la salida por consola del programa siguiente?
+  #+begin_src cpp
+    #include <iostream>
+    using namespace std;
+
+    int next_even(int n)
+    {
+      return 2*(n/2) + 2;
+    }
+
+    int next_odd(int n)
+    {
+      return 2*((n+1)/2) + 1;
+    }
+
+    int main()
+    {
+      int x {5};
+      cout << next_even(next_odd(x)) << next_odd(next_even(x)) << "\n";
+    }
+  #+end_src
+
+* 10
+  Dada la siguiente función:
+  #+begin_src cpp
+    char otra(char c)
+    {
+      if (c == '*') {
+        return '@';
+      }
+      return c;
+      if (c >= 'a' && c <= 'z') {
+        return '#';
+      }
+      else {
+        return '*';
+      }
+    }
+  #+end_src
+¿Cuánto valdrá la variable =x= después de ejecutarse las siguientes sentencias?
+#+begin_src cpp
+  char x {'b'};
+  x = otra(x);
+#+end_src
+* 11
+  Dada la siguiente función:
+  #+begin_src cpp
+    char otra(char c)
+    {
+      if (c == '*') {
+        return '@';
+      }
+      return c;
+      if (c >= 'a' && c <= 'z') {
+        return '#';
+      }
+      else {
+        return '*';
+      }
+    }
+  #+end_src
+Escribe, en caso de que sea posible, una llamada a la función =otra= que devuelva ='a'=. Si no es posible, explica por qué.
+* 12
+  Dada la siguiente función:
+  #+begin_src cpp
+    char otra(char c)
+    {
+      if (c == '*') {
+        return '@';
+      }
+      return c;
+      if (c >= 'a' && c <= 'z') {
+        return '#';
+      }
+      else {
+        return '*';
+      }
+    }
+  #+end_src
+
+Escribe, en caso de que sea posible, una llamada a la función =otra= que devuelva ='*'=. Si no es posible, explica por qué.
+* 13
+  ¿Qué error hay en la siguiente definición?
+  #+begin_src cpp
+    double f(std::string s)
+    {
+      return s + ".5";
+    }
+  #+end_src
+* 14
+  ¿Qué error hay en la siguiente definición?
+  #+begin_src cpp
+    std::string first_letter(std::string text)
+    {
+      return text[0];
+    }
+  #+end_src

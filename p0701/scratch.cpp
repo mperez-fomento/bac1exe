@@ -3,51 +3,21 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+#include <cmath>
 
-std::string iniciales(std::string texto)
+
+int next_even(int n)
 {
-    std::istringstream iss{texto};
-    std::string resultado {};
-    std::string palabra;
-    while (iss >> palabra) {
-        resultado += palabra[0];
-    }
-    return resultado;
+  return 2*(n/2) + 2;
 }
 
-std::string ordenado_por_palabras(std::string texto)
+int next_odd(int n)
 {
-    std::istringstream iss{texto};
-    std::vector<std::string> palabras {};
-    std::string palabra;
-    while (iss >> palabra) {
-        palabras.push_back(palabra);
-    }
-    std::sort(palabras.begin(), palabras.end());
-    std::string resultado {};
-    for (const auto& p : palabras) {
-        resultado += p + " ";
-    }
-    resultado.pop_back();
-    return resultado;
-}
-
-int cuenta_palabras(std::string texto)
-{
-    std::istringstream iss{texto};
-    std::string palabra;
-    int resultado {0};
-    while (iss >> palabra) {
-        resultado++;
-    }
-    return resultado;
+  return 2*((n+1)/2) + 1;
 }
 
 int main()
 {
-    std::string texto;
-    std::getline(std::cin, texto);
-    std::cout << iniciales(texto) << "\n";
-    std::cout << ordenado_por_palabras(texto) << "\n";
-    std::cout << cuenta_palabras(texto) << "\n";
+  int x {5};
+  std::cout << next_even(next_odd(x)) << next_odd(next_even(x)) << "\n";
 }

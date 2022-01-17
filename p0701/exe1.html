@@ -7,7 +7,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Manu" />
-  <title>exe1.tmpUI1LGY</title>
+  <title>exe1.tmp06TOv4</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="section-5" class="slide section level1">
 <h1>5</h1>
 <p>Escribe la definición de una función que calcule y devuelva la distancia entre dos puntos de un plano dadas sus coordenadas cartesianas. La función debe llamarse <code>distancia</code>. Debe tener cuatro parámetros, que son las coordenadas de los dos puntos: los dos primeros, las de un punto, y los dos últimos las del otro punto. Utiliza <code>double</code> tanto para los parámetros como para el valor devuelto.</p>
-<p>Para hallar la raíz cuadrada de un número <code>n</code>, utiliza <code>std::sqrt(n)</code>.</p>
+<p>Para hallar la raíz cuadrada de un número <code>n</code>, utiliza <code>sqrt(n)</code>. Si quieres compilar el programa, ten en cuenta que la función <code>sqrt</code> que calcula la raíz cuadrada, está en la librería <code>cmath</code>.</p>
 <p>Escribe una llamada a dicha función para calcular la distancia entre los puntos (1, 2) y (4, 6).</p>
 </div>
 <div id="section-6" class="slide section level1">
@@ -162,6 +162,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb2-37" title="37">    <span class="cf">return</span> resultado;</a>
 <a class="sourceLine" id="cb2-38" title="38">}</a></code></pre></div>
 <p>Nota: dentro del cuerpo de las funciones no hay errores sintáticos. No es necesario que entiendas dicho cuerpo. Los errores están sólo en la sintaxis de la definición.</p>
+</div>
+<div id="section-9" class="slide section level1">
+<h1>9</h1>
+<p>¿Cuál es la salida por consola del programa siguiente?</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb3-1" title="1"><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">using</span> <span class="kw">namespace</span> std;</a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="dt">int</span> next_even(<span class="dt">int</span> n)</a>
+<a class="sourceLine" id="cb3-5" title="5">{</a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="cf">return</span> <span class="dv">2</span>*(n/<span class="dv">2</span>) + <span class="dv">2</span>;</a>
+<a class="sourceLine" id="cb3-7" title="7">}</a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="dt">int</span> next_odd(<span class="dt">int</span> n)</a>
+<a class="sourceLine" id="cb3-10" title="10">{</a>
+<a class="sourceLine" id="cb3-11" title="11">  <span class="cf">return</span> <span class="dv">2</span>*((n+<span class="dv">1</span>)/<span class="dv">2</span>) + <span class="dv">1</span>;</a>
+<a class="sourceLine" id="cb3-12" title="12">}</a>
+<a class="sourceLine" id="cb3-13" title="13"></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="dt">int</span> main()</a>
+<a class="sourceLine" id="cb3-15" title="15">{</a>
+<a class="sourceLine" id="cb3-16" title="16">  <span class="dt">int</span> x {<span class="dv">5</span>};</a>
+<a class="sourceLine" id="cb3-17" title="17">  cout &lt;&lt; next_even(next_odd(x)) &lt;&lt; next_odd(next_even(x)) &lt;&lt; <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>;</a>
+<a class="sourceLine" id="cb3-18" title="18">}</a></code></pre></div>
+</div>
+<div id="section-10" class="slide section level1">
+<h1>10</h1>
+<p>Dada la siguiente función:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb4-1" title="1"><span class="dt">char</span> otra(<span class="dt">char</span> c)</a>
+<a class="sourceLine" id="cb4-2" title="2">{</a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="cf">if</span> (c == <span class="ch">&#39;*&#39;</span>) {</a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="cf">return</span> <span class="ch">&#39;@&#39;</span>;</a>
+<a class="sourceLine" id="cb4-5" title="5">  }</a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="cf">return</span> c;</a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="cf">if</span> (c &gt;= <span class="ch">&#39;a&#39;</span> &amp;&amp; c &lt;= <span class="ch">&#39;z&#39;</span>) {</a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="cf">return</span> <span class="ch">&#39;#&#39;</span>;</a>
+<a class="sourceLine" id="cb4-9" title="9">  }</a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb4-11" title="11">    <span class="cf">return</span> <span class="ch">&#39;*&#39;</span>;</a>
+<a class="sourceLine" id="cb4-12" title="12">  }</a>
+<a class="sourceLine" id="cb4-13" title="13">}</a></code></pre></div>
+<p>¿Cuánto valdrá la variable <code>x</code> después de ejecutarse las siguientes sentencias?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb5-1" title="1"><span class="dt">char</span> x {<span class="ch">&#39;b&#39;</span>};</a>
+<a class="sourceLine" id="cb5-2" title="2">x = otra(x);</a></code></pre></div>
+</div>
+<div id="section-11" class="slide section level1">
+<h1>11</h1>
+<p>Dada la siguiente función:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb6-1" title="1"><span class="dt">char</span> otra(<span class="dt">char</span> c)</a>
+<a class="sourceLine" id="cb6-2" title="2">{</a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="cf">if</span> (c == <span class="ch">&#39;*&#39;</span>) {</a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="cf">return</span> <span class="ch">&#39;@&#39;</span>;</a>
+<a class="sourceLine" id="cb6-5" title="5">  }</a>
+<a class="sourceLine" id="cb6-6" title="6">  <span class="cf">return</span> c;</a>
+<a class="sourceLine" id="cb6-7" title="7">  <span class="cf">if</span> (c &gt;= <span class="ch">&#39;a&#39;</span> &amp;&amp; c &lt;= <span class="ch">&#39;z&#39;</span>) {</a>
+<a class="sourceLine" id="cb6-8" title="8">    <span class="cf">return</span> <span class="ch">&#39;#&#39;</span>;</a>
+<a class="sourceLine" id="cb6-9" title="9">  }</a>
+<a class="sourceLine" id="cb6-10" title="10">  <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb6-11" title="11">    <span class="cf">return</span> <span class="ch">&#39;*&#39;</span>;</a>
+<a class="sourceLine" id="cb6-12" title="12">  }</a>
+<a class="sourceLine" id="cb6-13" title="13">}</a></code></pre></div>
+<p>Escribe, en caso de que sea posible, una llamada a la función <code>otra</code> que devuelva <code>'a'</code>. Si no es posible, explica por qué.</p>
+</div>
+<div id="section-12" class="slide section level1">
+<h1>12</h1>
+<p>Dada la siguiente función:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb7-1" title="1"><span class="dt">char</span> otra(<span class="dt">char</span> c)</a>
+<a class="sourceLine" id="cb7-2" title="2">{</a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="cf">if</span> (c == <span class="ch">&#39;*&#39;</span>) {</a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="cf">return</span> <span class="ch">&#39;@&#39;</span>;</a>
+<a class="sourceLine" id="cb7-5" title="5">  }</a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="cf">return</span> c;</a>
+<a class="sourceLine" id="cb7-7" title="7">  <span class="cf">if</span> (c &gt;= <span class="ch">&#39;a&#39;</span> &amp;&amp; c &lt;= <span class="ch">&#39;z&#39;</span>) {</a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="cf">return</span> <span class="ch">&#39;#&#39;</span>;</a>
+<a class="sourceLine" id="cb7-9" title="9">  }</a>
+<a class="sourceLine" id="cb7-10" title="10">  <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb7-11" title="11">    <span class="cf">return</span> <span class="ch">&#39;*&#39;</span>;</a>
+<a class="sourceLine" id="cb7-12" title="12">  }</a>
+<a class="sourceLine" id="cb7-13" title="13">}</a></code></pre></div>
+<p>Escribe, en caso de que sea posible, una llamada a la función <code>otra</code> que devuelva <code>'*'</code>. Si no es posible, explica por qué.</p>
+</div>
+<div id="section-13" class="slide section level1">
+<h1>13</h1>
+<p>¿Qué error hay en la siguiente definición?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb8-1" title="1"><span class="dt">double</span> f(<span class="bu">std::</span>string s)</a>
+<a class="sourceLine" id="cb8-2" title="2">{</a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="cf">return</span> s + <span class="st">&quot;.5&quot;</span>;</a>
+<a class="sourceLine" id="cb8-4" title="4">}</a></code></pre></div>
+</div>
+<div id="section-14" class="slide section level1">
+<h1>14</h1>
+<p>¿Qué error hay en la siguiente definición?</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><a class="sourceLine" id="cb9-1" title="1"><span class="bu">std::</span>string first_letter(<span class="bu">std::</span>string text)</a>
+<a class="sourceLine" id="cb9-2" title="2">{</a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="cf">return</span> text[<span class="dv">0</span>];</a>
+<a class="sourceLine" id="cb9-4" title="4">}</a></code></pre></div>
 </div>
 </body>
 </html>
